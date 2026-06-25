@@ -4,8 +4,6 @@ A modern Weather Application built with **Angular 21**, **Signals**, **Tailwind 
 
 The application allows users to search weather information for any city, view a 5-day forecast, use their current location, switch between dark and light themes, and view air quality information.
 
----
-
 ## 🚀 Features
 
 ### 🌍 Weather Search
@@ -65,8 +63,6 @@ The application allows users to search weather information for any city, view a 
 - Angular Control Flow (`@if`, `@for`)
 - TypeScript Interfaces
 
----
-
 ## 🛠 Tech Stack
 
 | Technology      | Purpose                  |
@@ -78,8 +74,6 @@ The application allows users to search weather information for any city, view a 
 | OpenWeather API | Weather Data             |
 | Local Storage   | Data Persistence         |
 | Geolocation API | Current Location Weather |
-
----
 
 ## 📂 Project Structure
 
@@ -101,15 +95,13 @@ src/
 │   │   └── air-quality.model.ts
 │   │
 │   └── services/
-│       └── weather.service.ts
+│       └── weather.ts
 │
 ├── environments/
 │   └── environment.ts
 │
 └── main.ts
 ```
-
----
 
 ## ⚙️ Installation
 
@@ -133,7 +125,7 @@ npm install
 
 ### 4. Configure Environment Variables
 
-Create or update:
+Create:
 
 ```text
 src/environments/environment.ts
@@ -145,8 +137,6 @@ export const environment = {
   apiKey: 'YOUR_OPENWEATHER_API_KEY',
 };
 ```
-
----
 
 ## 🔑 Getting OpenWeather API Key
 
@@ -166,8 +156,6 @@ YOUR_OPENWEATHER_API_KEY;
 
 with your actual API key.
 
----
-
 ## ▶️ Running the Application
 
 Start the development server:
@@ -181,8 +169,6 @@ Open:
 ```text
 http://localhost:4200
 ```
-
----
 
 ## 🧠 Angular Concepts Practiced
 
@@ -201,8 +187,6 @@ http://localhost:4200
 - Local Storage Persistence
 - Tailwind CSS Styling
 
----
-
 ## 🔮 Future Enhancements
 
 - ⭐ Favorite Cities
@@ -213,8 +197,6 @@ http://localhost:4200
 - 🗺 Interactive Weather Maps
 - 📈 Weather Charts
 - 🌬 Detailed Air Pollution Metrics
-
----
 
 ## 👨‍💻 Author
 
