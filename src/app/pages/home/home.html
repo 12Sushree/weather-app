@@ -1,0 +1,115 @@
+<div class="min-h-screen transition-all duration-300" [class]="pageClasses()">
+  <div class="container mx-auto px-4 py-8">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-4xl font-bold">{{ weatherEmoji() }} Weather App</h1>
+
+      <button
+        (click)="toggleDarkMode()"
+        class="px-4 py-2 rounded-lg bg-white/20 backdrop-blur-sm hover:bg-white/30 transition"
+      >
+        {{ darkMode() ? '☀ Light' : '🌙 Dark' }}
+      </button>
+    </div>
+
+    <!-- Main Card -->
+    <div class="max-w-2xl mx-auto bg-white/10 backdrop-blur-md rounded-3xl p-6 shadow-2xl">
+      <!-- Search -->
+      <app-search-bar (citySearch)="getWeather($event)" [darkMode]="darkMode()"></app-search-bar>
+
+      <!-- Current Location -->
+      <div class="mt-4 text-center">
+        <button
+          class="bg-green-500 hover:bg-green-600 transition text-white px-5 py-2 rounded-lg"
+          (click)="getCurrentLocation()"
+        >
+          📍 Use My Location
+        </button>
+      </div>
+
+      <!-- Search History -->
+      @if (searchHistory().length) {
+        <div class="mt-6">
+          <h3 class="font-semibold mb-2">Recent Searches</h3>
+
+          <div class="flex flex-wrap gap-2">
+            @for (city of searchHistory(); track city) {
+              <button
+                class="bg-white/20 hover:bg-white/30 px-3 py-2 rounded-full transition"
+                (click)="getWeather(city)"
+              >
+                {{ city }}
+              </button>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Loading -->
+      @if (loading()) {
+        <div class="mt-6">
+          <div class="animate-pulse h-64 rounded-2xl bg-white/20"></div>
+        </div>
+      }
+
+      <!-- Weather Card -->
+      @if (hasWeather()) {
+        <div class="mt-6">
+          <app-weather-card [weather]="weatherData()!"></app-weather-card>
+        </div>
+      }
+
+      @if (airQuality()) {
+        <div class="mt-6 bg-white/20 backdrop-blur-sm rounded-3xl p-6 text-center shadow-xl">
+          <h2 class="text-xl font-bold">Air Quality</h2>
+
+          <div class="text-5xl mt-3">
+            {{ aqiEmoji() }}
+          </div>
+
+          <div class="text-2xl font-bold mt-2">
+            {{ aqiStatus() }}
+          </div>
+
+          <div class="mt-2">
+            AQI Index:
+            {{ airQuality()!.list[0].main.aqi }}
+          </div>
+        </div>
+      }
+
+      <!-- Forecast -->
+      @if (forecastItems().length) {
+        <div class="mt-8">
+          <h2 class="text-2xl font-bold mb-4">5 Day Forecast</h2>
+
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+            @for (item of forecastItems(); track item.dt) {
+              <div
+                class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-center shadow hover:-translate-y-1"
+              >
+                <div class="font-semibold">{{ item.dt_txt | date: 'EEE, dd MMM' }}</div>
+                <img
+                  [src]="'https://openweathermap.org/img/wn/' + item.weather[0].icon + '@2x.png'"
+                  [alt]="item.weather[0].description"
+                  class="mx-auto w-14 h-14"
+                />
+                <div class="text-xl font-bold">{{ item.main.temp | number: '1.0-0' }}°</div>
+                <div class="text-xs capitalize opacity-80">
+                  {{ item.weather[0].description }}
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Error -->
+      @if (errorMessage()) {
+        <div class="mt-6 bg-red-500/20 border border-red-400 text-red-100 p-4 rounded-xl">
+          {{ errorMessage() }}
+        </div>
+      }
+    </div>
+  </div>
+</div>

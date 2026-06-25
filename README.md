@@ -1,59 +1,224 @@
-# WeatherApp
+# 🌤 Weather App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.16.
+A modern Weather Application built with **Angular 21**, **Signals**, **Tailwind CSS**, and the **OpenWeather API**.
 
-## Development server
+The application allows users to search weather information for any city, view a 5-day forecast, use their current location, switch between dark and light themes, and view air quality information.
 
-To start a local development server, run:
+---
+
+## 🚀 Features
+
+### 🌍 Weather Search
+
+- Search weather by city name
+- Real-time weather information
+- Error handling for invalid cities
+
+### 📍 Current Location Weather
+
+- Uses the browser Geolocation API
+- Fetches weather based on the user's current location
+
+### 📅 5-Day Forecast
+
+- Displays upcoming daily forecasts
+- Weather icons and descriptions
+- Temperature predictions
+
+### 🌫 Air Quality Index (AQI)
+
+- Displays air quality information
+- AQI status indicators:
+  - 🟢 Good
+  - 🟡 Fair
+  - 🟠 Moderate
+  - 🔴 Poor
+  - ⚫ Very Poor
+
+### 🌅 Additional Weather Details
+
+- Sunrise Time
+- Sunset Time
+- Visibility
+- Humidity
+- Wind Speed
+- Pressure
+- Feels Like Temperature
+
+### 🌙 Dark Mode
+
+- Light/Dark theme toggle
+- Theme preference persists after refresh
+
+### 🕒 Search History
+
+- Stores previously searched cities
+- Persisted using Local Storage
+- Quick access to recent searches
+
+### ⚡ Modern Angular Features
+
+- Angular Standalone Components
+- Angular Signals
+- Computed Signals
+- Effects
+- Angular Control Flow (`@if`, `@for`)
+- TypeScript Interfaces
+
+---
+
+## 🛠 Tech Stack
+
+| Technology      | Purpose                  |
+| --------------- | ------------------------ |
+| Angular 21      | Frontend Framework       |
+| TypeScript      | Application Logic        |
+| Tailwind CSS    | Styling                  |
+| Angular Signals | State Management         |
+| OpenWeather API | Weather Data             |
+| Local Storage   | Data Persistence         |
+| Geolocation API | Current Location Weather |
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+│
+├── app/
+│   │
+│   ├── components/
+│   │   ├── search-bar/
+│   │   └── weather-card/
+│   │
+│   ├── pages/
+│   │   └── home/
+│   │
+│   ├── models/
+│   │   ├── weather.model.ts
+│   │   ├── forecast.model.ts
+│   │   └── air-quality.model.ts
+│   │
+│   └── services/
+│       └── weather.service.ts
+│
+├── environments/
+│   └── environment.ts
+│
+└── main.ts
+```
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/weather-app.git
+```
+
+### 2. Navigate to Project
+
+```bash
+cd weather-app
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Configure Environment Variables
+
+Create or update:
+
+```text
+src/environments/environment.ts
+```
+
+```ts
+export const environment = {
+  apiUrl: 'https://api.openweathermap.org/data/2.5',
+  apiKey: 'YOUR_OPENWEATHER_API_KEY',
+};
+```
+
+---
+
+## 🔑 Getting OpenWeather API Key
+
+1. Create an account at:
+   https://openweathermap.org
+
+2. Navigate to:
+   https://home.openweathermap.org/api_keys
+
+3. Generate an API key
+
+4. Replace:
+
+```ts
+YOUR_OPENWEATHER_API_KEY;
+```
+
+with your actual API key.
+
+---
+
+## ▶️ Running the Application
+
+Start the development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 🧠 Angular Concepts Practiced
 
-## Building
+- Standalone Components
+- Component Communication
+- Input & Output Decorators
+- Angular Signals
+- Computed Signals
+- Effects
+- Dependency Injection
+- HTTP Client
+- Services
+- TypeScript Models
+- Angular Pipes
+- Geolocation API
+- Local Storage Persistence
+- Tailwind CSS Styling
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 🔮 Future Enhancements
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- ⭐ Favorite Cities
+- 📊 Hourly Forecast
+- 🌎 Multiple Language Support
+- 📱 Progressive Web App (PWA)
+- 🔔 Weather Alerts
+- 🗺 Interactive Weather Maps
+- 📈 Weather Charts
+- 🌬 Detailed Air Pollution Metrics
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## 👨‍💻 Author
 
-```bash
-ng test
-```
+Developed by Sushreeta Sahu
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+GitHub:
+https://github.com/12Sushree

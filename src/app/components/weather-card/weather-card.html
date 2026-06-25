@@ -1,0 +1,86 @@
+<div
+  class="bg-white text-gray-800 rounded-3xl shadow-2xl p-6 mt-6 hover:scale-[1.02] transition-all duration-300"
+>
+  <!-- City Name -->
+  <div class="text-center">
+    <h2 class="text-3xl font-bold">
+      {{ weather.name }}
+    </h2>
+
+    <p class="text-gray-500 mt-1 capitalize">
+      {{ weather.weather[0].description }}
+    </p>
+  </div>
+
+  <!-- Weather Icon -->
+  <div class="flex justify-center mt-4">
+    <img
+      [src]="'https://openweathermap.org/img/wn/' + weather.weather[0].icon + '@4x.png'"
+      [alt]="weather.weather[0].description"
+      class="w-32 h-32"
+    />
+  </div>
+
+  <!-- Temperature -->
+  <div class="text-center">
+    <h1 class="text-6xl font-bold">{{ weather.main.temp }}°</h1>
+
+    <p class="text-lg text-gray-500">Feels like {{ weather.main.feels_like }}°</p>
+  </div>
+
+  <!-- Weather Details -->
+  <div class="grid grid-cols-2 gap-4 mt-8">
+    <div class="bg-blue-50 rounded-2xl p-4 text-center">
+      <p class="text-sm text-gray-500">Humidity</p>
+
+      <p class="text-xl font-bold">💧 {{ weather.main.humidity }}%</p>
+    </div>
+
+    <div class="bg-blue-50 rounded-2xl p-4 text-center">
+      <p class="text-sm text-gray-500">Wind</p>
+
+      <p class="text-xl font-bold">🌬 {{ weather.wind.speed }} m/s</p>
+    </div>
+
+    <div class="bg-blue-50 rounded-2xl p-4 text-center">
+      <p class="text-sm text-gray-500">Pressure</p>
+
+      <p class="text-xl font-bold">📊 {{ weather.main.pressure }}</p>
+    </div>
+
+    <div class="bg-blue-50 rounded-2xl p-4 text-center">
+      <p class="text-sm text-gray-500">Feels Like</p>
+
+      <p class="text-xl font-bold">🌡 {{ weather.main.feels_like }}°</p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-3 gap-4 mt-6">
+    <div class="bg-amber-50 rounded-2xl p-4 text-center">
+      <p class="text-sm text-gray-500">Sunrise</p>
+
+      <p class="font-bold">
+        🌅
+        {{ weather.sys.sunrise * 1000 | date: 'shortTime' }}
+      </p>
+    </div>
+
+    <div class="bg-orange-50 rounded-2xl p-4 text-center">
+      <p class="text-sm text-gray-500">Sunset</p>
+
+      <p class="font-bold">
+        🌇
+        {{ weather.sys.sunset * 1000 | date: 'shortTime' }}
+      </p>
+    </div>
+
+    <div class="bg-indigo-50 rounded-2xl p-4 text-center">
+      <p class="text-sm text-gray-500">visibility</p>
+
+      <p class="font-bold">
+        👁
+        {{ weather.visibility / 1000 }} km
+      </p>
+    </div>
+  </div>
+</div>
